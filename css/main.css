@@ -1,3 +1,144 @@
+/*Homeのローディング背景*/
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeOut 1.5s 2.5s forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+/*Homeのローディング中に表示されるロゴ*/
+.loading img {
+    opacity: 0;
+    animation: logo_fade 2s 0.5s;
+    width: 175px;
+  }
+
+  @keyframes logo_fade {
+    0% {
+      opacity: 0;
+      transform: scale(0.4)
+    }
+
+    60% {
+      opacity: 1;
+      transform: scale(0.5);
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+/*サブページのローディング背景*/
+.loading-sub {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeOut 0.5s 1.5s forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  /*サブページのローディング中に表示されるロゴ*/
+  .loading-sub img {
+    opacity: 0;
+    animation: logo_fade 1s 0.5s;
+    width: 175px;
+  }
+  
+  @keyframes logo_fade {
+    0% {
+      opacity: 0;
+      transform: scale(0.4)
+    }
+  
+    60% {
+      opacity: 1;
+      transform: scale(0.5);
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+
+/* スクロールダウンの位置 */
+.scroll {
+    position: absolute;
+    right: 48.5%;
+    top: 65%;
+    writing-mode: vertical-rl;
+  }
+
+  /* 線のアニメーション部分 */
+  .scroll::before {
+    z-index: 50;
+    animation: scroll 2s infinite;
+    background-color: #000;
+    bottom: -115px;
+    content: "";
+    height: 150px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 4px;
+  }
+
+  /* 線のアニメーション */
+  @keyframes scroll {
+    0% {
+      transform: scale(1, 0);
+      transform-origin: 0 0;
+    }
+    50% {
+      transform: scale(1, 1);
+      transform-origin: 0 0;
+    }
+    51% {
+      transform: scale(1, 1);
+      transform-origin: 0 100%;
+    }
+    100% {
+      transform: scale(1, 0);
+      transform-origin: 0 100%;
+    }
+  }
+
 body {
     background-color: #ffffff;
     font-family: "Noto Sans JP", sans-serif;
@@ -15,6 +156,8 @@ header {
     display: flex;
     font-size: 16px;
     margin: 30px;
+    background-color: #fff;
+    /* position: fixed; */
 }
 
 header img {
@@ -27,7 +170,7 @@ header a {
 }
 
 nav {
-    margin: 0 0 1px auto;
+    margin: 0 0 0 auto;
 }
 
 nav a {
@@ -35,70 +178,170 @@ nav a {
     font-size: 16px;
 }
 
+button {
+    margin: 30px auto;
+    border: 1px solid #202020;
+    background-color: #f6f6f6;
+    width: 200px;
+    height: 50px;
+}
+
+button:hover{
+    background-color: #ececec;
+}
+
 .top img {
     object-fit: cover;
     object-position: 100% 60%;
     width: 100%;
     height: 90vh;
+    filter: saturate(120%)
+}
+
+div a :hover {
+    filter: grayscale(5%);
 }
 
 .news {
     color: #fff;
     background: url(../img/news.jpg);
     background-position: 50% 50%;
+    filter: grayscale(100%);
     margin: 50px auto;
     padding: 40px;
     height: 50vh;
     width: 80vw;
-}
-
-.news :hover {
-
+    transition-duration: .3s;
 }
 
 .about {
     color: #fff;
     background: url(../img/about.jpg);
     background-position: 70% 80%;
+    filter: grayscale(100%);
     margin: 50px auto;
     padding: 40px;
     height: 50vh;
     width: 80vw;
+    transition-duration: .3s;
 }
 
 .activity {
     color: #fff;
     background: url(../img/activity.jpg);
     background-position: 50% 50%;
+    filter: grayscale(100%);
     margin: 50px auto;
     padding: 40px;
     height: 50vh;
     width: 80vw;
+    transition-duration: .3s;
 }
 
 .history {
     color: #fff;
     background: url(../img/history.jpg);
     background-position: 20% 70%;
+    filter: grayscale(100%);
     margin: 50px auto;
     padding: 40px;
     height: 50vh;
     width: 80vw;
+    transition-duration: .3s;
 }
 
 .contact {
     color: #fff;
     background: url(../img/contact.jpg);
     background-position: 30% 20%;
+    filter: grayscale(100%);
     margin: 50px auto;
     padding: 40px;
     height: 50vh;
     width: 80vw;
+    transition-duration: .3s;
+}
+
+.contact-message {
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+.contact-form {
+    width: 600px;
+    margin: 0 auto;
+    /* border: 1px solid #000; */
+}
+
+.contact-form div {
+    margin-bottom: 50px;
+}
+
+
+
+.contact-form span {
+    color: #fbfbfb;
+    background-color: #696969;
+    margin: 0 10px;
+    padding: 0 10px;
+    border-radius: 16px;
+}
+
+.contact-form .box {
+    width: 600px;
+    height: 40px;
+    border: 1px solid #000;
+    background-color: #fbfbfb;
+    margin: 16px 0;
+}
+
+.contact-form textarea {
+    width: 600px;
+    border: 1px solid #000;
+    background-color: #fbfbfb;
+    margin: 16px 0;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin: auto 10px;
+    border: 1px solid #000;
+    vertical-align: -5px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+  
+input[type="checkbox"]:checked:before {
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    transform: rotate(50deg);
+    width: 4px;
+    height: 8px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    content: '';
+}
+
+input[type="submit"] {
+    margin: 30px auto;
+    border: 1px solid #202020;
+    background-color: #f6f6f6;
+    width: 80px;
+    height: 40px;
+}
+
+input[type="submit"]:hover {
+    background-color: #ececec;
 }
 
 footer {
     padding: 50px 0;
-    background-color: #cddee5;
+    background-color: #dadee0;
 }
 
 footer nav {
@@ -111,4 +354,19 @@ footer p {
     margin: 0;
     font-size: 12px;
     color: #656565;
+}
+
+@media screen and (max-width: 450px) {
+
+    .top {
+        width: 100vw;
+    } 
+
+    footer {
+        width: 100vw;
+    }
+
+    nav {
+        display: none;
+    }
 }
