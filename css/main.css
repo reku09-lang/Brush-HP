@@ -254,7 +254,7 @@ div a :hover {
 .activity {
     color: #fff;
     background: url(../img/activity.jpg);
-    background-position: 50% 50%;
+    background-position: 20% 70%;
     filter: grayscale(100%);
     margin: 50px auto;
     padding: 40px;
@@ -266,7 +266,7 @@ div a :hover {
 .history {
     color: #fff;
     background: url(../img/history.jpg);
-    background-position: 20% 70%;
+    background-position: 50% 50%;
     filter: grayscale(100%);
     margin: 50px auto;
     padding: 40px;
